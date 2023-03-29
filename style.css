@@ -1,0 +1,153 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --black:rgba(0, 0, 0, 0.712);
+    --primary:#E6F9FC;
+    --secondary:#B9EFF6;
+    --warm:#F4E6FC;
+    --white:rgba(255, 255, 255, 0.956);
+    --bg:rgba(243, 245, 247, 0.967);
+}
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.flex-btw{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.flex-horizontal{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+body{
+    background: var(--bg);
+    color: var(--black);
+    font-size: 1rem;
+}
+.container{
+    padding:0 2rem ;
+    width: 80%;
+    margin: 0 auto;
+}
+.border{
+    border: 1px solid var(--primary);
+    padding:   1rem 2rem;
+    box-shadow: 0 7px 5px 0px var(--primary);
+    background: var(--secondary);
+    border-radius: 5px ;
+}
+.links{
+    margin: 1.8rem 0;
+}
+.links a{
+    width: 15rem;
+    text-decoration: none;
+    color: inherit;
+    background: var(--primary);
+    padding: 1rem 2rem;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+.links a::after{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 5px;
+    background: #E6EFFC;
+    
+    bottom: 0;
+    left: 0;
+}
+.links a.active,.links a:hover,input[type='submit']:hover{
+    background: var(--warm);
+}
+
+select,input{
+    border: none;
+    outline: none;
+    padding: 5px 14px;
+    border-radius: 4px;
+}
+.table{
+    margin-top: 2rem;
+    height: 60vh;
+    padding: 1px;
+    overflow: auto;
+}
+.table::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* Hide scrollbar thumb for WebKit browsers */
+.table::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+table{
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+}
+thead th{
+    padding: 12px 8px;
+    background: var(--secondary);
+    
+}
+tbody, th, td {
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+  padding: 8px;
+}
+th {
+  text-align: left;
+}
+tbody tr:nth-child(even) {
+  background-color: var(--primary);
+}
+tbody tr:nth-child(odd) {
+  background-color: var(--white);
+}
+form{
+    padding:2.5rem 2rem !important;
+    width: 80%;
+    margin: 0 auto;
+}
+.input-wrap:nth-child(1){
+    margin-bottom: 1.5rem;
+}
+.input-wrap{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+}
+.input-wrap *{
+    width: 15rem;
+    height: 2.5rem;
+}
+.submit-wrap{
+    margin-top: 2.5rem;
+    cursor: pointer;
+}
+input[type='submit']{
+    padding:13px 12px;
+    background: var(--primary);
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
