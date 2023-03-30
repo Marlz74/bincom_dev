@@ -1,3 +1,4 @@
+<?php require "module.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,20 +25,22 @@
         </div>
     </div>
     <div class="container">
-        <div class="links flex-center">
-            <a href="index.html" class="active">Polling Unit Result</a>
-            <a href="lga.html">LGA Result</a>
-            <a href="update.html">Update Result</a>
-        </div>
+        <?php require "header.php";?>
         <div class="filter-wrap flex-btw border">
             <select name="state" id="state">
                 <option value="" selected disabled>Choose State</option>
-                <option value="Akwa Ibom">Akwa Ibom</option>
-                <option value="Akwa Ibom">Akwa Ibom</option>
-                <option value="Akwa Ibom">Akwa Ibom</option>
-                <option value="Akwa Ibom">Akwa Ibom</option>
+                <?php 
+                $query=new query();
+                $sql='SELECT * FROM `states`';
+                $query->prepareQuery($sql,'','');
+                $result=json_decode($query->executeSelect());
+                foreach ($result as $key => $value) {?>
+                    <option value="<?=$result[$key]->state_id;?>"><?=$result[$key]->state_name;?></option>
+                <?php
+                }
+                ?>
             </select>
-            <select name="lga" id="lga">
+            <select name="lga" id="lga" disabled>
                 <option value="" selected disabled>Choose LGA</option>
                 <option value="Uruan">Uruan</option>
                 <option value="Uruan">Uruan</option>
@@ -74,6 +77,26 @@
         </div>
 
     </div>
+    <script src="module.js"></script>
+    <script>
+        function handleResponse(res){
+            console.log(res)
+        }
+        let initail_value='';
+        var SelectTags =document.querySelectorAll('select');
+        SelectTags[0].onmouseleave=(e)=>{
+            if(e.target.tagName!='SELECT'){
+                return false;
+            }
+            let selected=SelectTags[0][SelectTags[0].selectedIndex].value;
+
+            if(selected!='' && initail_value!=selected){
+                initail_value=selected;
+                ajaxCall('get','polling-result.php',{'state':selected,id:'id'},handleResponse)
+            }
+        }
+        
+    </script>
 
 </body>
 </html>

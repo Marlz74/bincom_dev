@@ -24,11 +24,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="links flex-center">
-            <a href="index.html" >Polling Unit Result</a>
-            <a href="lga.html" class="active">LGA Result</a>
-            <a href="update.html">Update Result</a>
-        </div>
+        <?php require "header.php";?>
         <div class="filter-wrap flex-btw border">
             <select name="state" id="state">
                 <option value="" selected disabled>Choose State</option>

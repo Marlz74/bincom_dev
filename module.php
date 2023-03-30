@@ -1,7 +1,5 @@
 <?php
 // require "config.php";
-    session_start();
-    
     class query{
         private $stmt;
         private $con;
@@ -34,16 +32,12 @@
         public function executeSelect() {
             $this->stmt->execute();
             $result = $this->stmt->get_result();
-            // $data = array();
             $data=[];
-            
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    // $data[] = $row;
                     array_push($data,$row);
                 }
             }
-            
             return json_encode($data);
         }
         
@@ -63,18 +57,19 @@
         // }
 
     }
-    $query=new query();
-    $sql='SELECT * FROM party';
-    $query->prepareQuery($sql,'','');
-    $result=json_decode($query->executeSelect());
-    print_r($result);
-    echo "<br>";echo "<br>";echo "<br>";
-    
-    for($i=0;$i<count($result);$i++){
-        // print_r($result[$i]->id);echo "<br>";;
-    }
-foreach ($result as $key => $value) {
-    print_r($result[$key]->id);
-}
+    // $query=new query();
+    // $sql='SELECT * FROM party';
+    // $query->prepareQuery($sql,'','');
+    // $result=json_decode($query->executeSelect());
+    // print_r($result);
+    // echo "<br>";echo "<br>";echo "<br>";
+    // HOW TO READ JSON IN PHP
+    // for($i=0;$i<count($result);$i++){
+    //     print_r($result[$i]->id);echo "<br>";
+    // }
+    // HOW TO READ JSON IN PHP
+    // foreach ($result as $key => $value) {
+    //     print_r($result[$key]->id);
+    // }
 
 ?>

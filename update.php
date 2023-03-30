@@ -24,11 +24,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="links flex-center">
-            <a href="index.html" >Polling Unit Result</a>
-            <a href="lga.html" >LGA Result</a>
-            <a href="update.html" class="active">Update Result</a>
-        </div>
+        <?php require "header.php";?>
         <h2 class="  flex-center " style="padding-top: 2rem; padding-bottom: 1rem;">UPDATE RESULT</h2>
         <div class="   form-wrap">
             
