@@ -8,6 +8,7 @@ body{
 }
 :root{
     --green:rgba(0, 128, 0, 0.694);
+    --fade_red:rgba(244, 31, 31, 0.897);
 }
 .flex-center-colum{
     display: flex;
@@ -68,6 +69,9 @@ body{
     padding-top: 3rem;
     font-size: 1.1rem;
     text-align: center;
+}
+.loader{
+    z-index: 3;
 }
 .controls{
     padding-top: 2.4rem;

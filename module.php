@@ -18,11 +18,17 @@
                     break;
                 default :
                 $this->stmt = $this->con->prepare($sql);
-                $this->stmt->bind_param($types, ...$params);
+                $this->stmt->bind_param($types,...$params);
                 break ;                        
             }
         }
         
+        public function sanitize($data){
+            $data=htmlspecialchars($data);
+            $data=trim($data);
+            $data = stripslashes($data);
+            return $data;
+        }
         // Method to bind parameters to a prepared statement
         // public function bindParams($types, ...$params) {
         //     $this->stmt->bind_param($types, ...$params);
@@ -37,8 +43,11 @@
                 while ($row = $result->fetch_assoc()) {
                     array_push($data,$row);
                 }
+                return json_encode($data);
             }
-            return json_encode($data);
+            return false;
+            
+            
         }
         
         // Method to execute a prepared statement that does not return a result set
@@ -57,6 +66,7 @@
         // }
 
     }
+
     // $query=new query();
     // $sql='SELECT * FROM party';
     // $query->prepareQuery($sql,'','');

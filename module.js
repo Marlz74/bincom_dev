@@ -14,7 +14,6 @@ class request{
         xhr.open(method,url,true);
         xhr.onload=()=>{
             if(xhr.status==200){
-                
                 callback(xhr.responseText);
             }
         }
