@@ -127,7 +127,7 @@ form{
     width: 80%;
     margin: 0 auto;
 }
-.input-wrap:nth-child(1){
+.input-wrap:nth-child(1),.input-wrap:nth-child(2),.input-wrap:nth-child(3),.input-wrap:nth-child(4){
     margin-bottom: 1.5rem;
 }
 .input-wrap{
@@ -150,4 +150,12 @@ input[type='submit']{
     background: var(--primary);
     cursor: pointer;
     transition: all .3s ease-in-out;
+}
+textarea{
+    width: 100% !important;
+    border: none;
+    outline: none;
+    padding: 5px 14px;
+    border-radius: 4px;
+    min-height: 8rem;
 }

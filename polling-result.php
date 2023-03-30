@@ -23,6 +23,11 @@
         $sql='SELECT lga_name,lga_id FROM lga where state_id=?';
         $query->prepareQuery($sql,'i',$state_id);
         echo ($query->executeSelect()!=false)?$query->executeSelect():false;
+    }elseif(isset($_GET['get_pu'])){
+        $ward_id=intval($query->sanitize( $_GET['pu']));
+        $sql='SELECT `polling_unit`.`polling_unit_name`,`polling_unit`.`uniqueid` FROM `polling_unit` where `polling_unit`.`ward_id`=?';
+        $query->prepareQuery($sql,'i',$ward_id);
+        echo ($query->executeSelect()!=false)?$query->executeSelect():false;
     }
 
 
